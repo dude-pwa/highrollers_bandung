@@ -25,6 +25,6 @@ class CheckRole
             return $next($request);
         }
 
-        return response()
+        return response('Ijin Ditolak', 410);
     }
 }

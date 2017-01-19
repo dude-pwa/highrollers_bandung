@@ -16,6 +16,17 @@
 //});
 
 Route::get('/', 'DemoController@index');
+
+// Middleware Demo
+Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
+    Route::get('/demo', function ()    {
+        return 'only admin can view this page';
+    });
+
+//    Add other route Here
+//    Route::get('/', 'DemoController@index');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
