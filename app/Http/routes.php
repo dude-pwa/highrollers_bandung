@@ -30,3 +30,6 @@ Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('categories', 'CategoriesController');
+
