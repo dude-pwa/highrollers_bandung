@@ -32,4 +32,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('categories', 'CategoriesController');
+Route::resource('product_models', 'ProductModelController');
 
