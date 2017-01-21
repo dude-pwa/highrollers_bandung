@@ -57,6 +57,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/categories') }}">Category</a></li>
                             <li><a href="{{ url('/product_models') }}">Product Model</a></li>
+                            <li><a href="{{ url('/products') }}">Product</a></li>
                         </ul>
                     </li>
                 </ul>
