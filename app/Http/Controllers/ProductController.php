@@ -31,9 +31,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $productCode = \ProductHelper::GenerateProductCode();
         $categories = Category::lists('category_name', 'id');
         $product_models = ProductModel::lists('model_name', 'id');
-        return view('products.create', compact('categories', 'product_models'));
+        return view('products.create', compact('categories', 'product_models', 'productCode'));
     }
 
     /**
