@@ -26,6 +26,17 @@ class ProductRequest extends Request
         return [
             'code' => 'required',
             'article_name' => 'required',
+            'color' => 'required',
+            'size_s' => 'numeric',
+            'size_m' => 'numeric',
+            'size_l' => 'numeric',
+            'size_ll' => 'numeric',
+            'size_xl' => 'numeric',
+            'size_xxl' => 'numeric',
+            'size_xxxl' => 'numeric',
+            'qty_topi' => 'numeric',
+            'price_normal' => 'numeric',
+            'price_over_size' => 'numeric'
         ];
     }
 }

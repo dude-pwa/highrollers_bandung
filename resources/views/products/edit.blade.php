@@ -8,8 +8,12 @@
 			
 
 			{!! Form::model($product, ['method' => 'patch', 'action' => ['ProductController@update', $product->id]]) !!}
-					@include('products.form', ['submitButton'=>'Simpan Perubahan'])
-				{!! Form::close() !!}
+				<div class="input-group">
+					{!! Form::label('code', 'Product Code: ', ['class'=>'input-group-addon bold']) !!}
+					{!! Form::text('code', null, ['class' => 'form-control', 'readonly']) !!}
+				</div> <br>
+				@include('products.form', ['submitButton'=>'Simpan Perubahan'])
+			{!! Form::close() !!}
 		</div>
 	</div>
 @stop

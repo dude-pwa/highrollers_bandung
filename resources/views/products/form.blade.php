@@ -15,6 +15,46 @@
 	{!! Form::label('article_name', 'Article Name: ', ['class'=>'input-group-addon bold']) !!}
 	{!! Form::text('article_name', null, ['class' => 'form-control']) !!}
 </div> <br>
+<div class="input-group">
+	{!! Form::label('color', 'Color: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('color', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_s', 'Size S Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_s', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_m', 'Size M Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_m', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_l', 'Size L Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_l', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_ll', 'Size LL Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_ll', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_xl', 'Size XL Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_xl', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_xxl', 'Size XXL Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_xxl', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('size_xxxl', 'Size XXXL Qty.: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('size_xxxl', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('price_normal', 'Normal Price: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('price_normal', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('price_over_size', 'Over Size Price: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::text('price_over_size', null, ['class' => 'form-control']) !!}
+</div> <br>
 <div class="input-group pull-right">
 	<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default">Back</a> &nbsp;&nbsp;&nbsp;
 	{!! Form::submit($submitButton, ['class' => 'btn btn-primary']) !!}
