@@ -14,6 +14,9 @@
 				<th class="col-md-2">Category</th>
 				<th class="col-md-2">Model</th>
 				<th class="col-md-2">Article Name</th>
+				<th class="col-md-2">Front Image</th>
+				<th class="col-md-2">Back Image</th>
+				<th class="col-md-2">Closeup Image</th>
 				<th colspan="2" class="center">Action</th>
 			</tr>
 			<?php $i = 0; ?>
@@ -24,6 +27,9 @@
                         <td>{{ strtoupper($product->category()->first()->category_name) }}</td>
                         <td>{{ strtoupper($product->product_model()->first()->model_name) }}</td>
                         <td>{{ strtoupper($product->article_name) }}</td>
+						<td><img src="{{ asset('images/products/'.$product->pict_front) }}" height="50" width="50" alt=""></td>
+						<td><img src="{{ asset('images/products/'.$product->pict_back) }}" height="50" width="50" alt=""></td>
+						<td><img src="{{ asset('images/products/'.$product->pict_closeup) }}" height="50" width="50" alt=""></td>
 
 						{{--@if (!Auth::guest())--}}
 						<td class="col-md-1" align="right">

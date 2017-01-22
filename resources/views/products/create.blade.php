@@ -7,7 +7,7 @@
 			@include('errors.list')
 			
 
-			{!! Form::open(['url' => 'products']) !!}
+			{!! Form::open(['url' => 'products', 'files' => true]) !!}
 				{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 				<div class="input-group">
 					{!! Form::label('code', 'Product Code: ', ['class'=>'input-group-addon bold']) !!}

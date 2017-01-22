@@ -55,6 +55,18 @@
 	{!! Form::label('price_over_size', 'Over Size Price: ', ['class'=>'input-group-addon bold']) !!}
 	{!! Form::text('price_over_size', null, ['class' => 'form-control']) !!}
 </div> <br>
+<div class="input-group">
+	{!! Form::label('pict_front', 'Front Image: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::file('pict_front', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('pict_back', 'Back Image: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::file('pict_back', null, ['class' => 'form-control']) !!}
+</div> <br>
+<div class="input-group">
+	{!! Form::label('pict_closeup', 'Closeup Image: ', ['class'=>'input-group-addon bold']) !!}
+	{!! Form::file('pict_closeup', null, ['class' => 'form-control']) !!}
+</div> <br>
 <div class="input-group pull-right">
 	<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default">Back</a> &nbsp;&nbsp;&nbsp;
 	{!! Form::submit($submitButton, ['class' => 'btn btn-primary']) !!}

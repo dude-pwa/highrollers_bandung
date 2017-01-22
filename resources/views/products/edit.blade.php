@@ -7,7 +7,7 @@
 			@include('errors.list')
 			
 
-			{!! Form::model($product, ['method' => 'patch', 'action' => ['ProductController@update', $product->id]]) !!}
+			{!! Form::model($product, ['method' => 'patch', 'files' => true, 'action' => ['ProductController@update', $product->id]]) !!}
 				<div class="input-group">
 					{!! Form::label('code', 'Product Code: ', ['class'=>'input-group-addon bold']) !!}
 					{!! Form::text('code', null, ['class' => 'form-control', 'readonly']) !!}
