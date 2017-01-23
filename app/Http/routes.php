@@ -34,4 +34,5 @@ Route::get('/home', 'HomeController@index');
 Route::resource('categories', 'CategoriesController');
 Route::resource('product_models', 'ProductModelController');
 Route::resource('products', 'ProductController');
+Route::get('/products-old', 'ProductController@indexOld');
 

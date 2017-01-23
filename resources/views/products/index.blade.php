@@ -1,57 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-	<br>
-	<a href="{{ url('/products/create') }}" class="btn btn-primary">Add New Product</a>
-	<br><br>
-	<a href="/" class="btn btn-warning">Home</a>
-	<div class="panel panel-success">
-		<h1 class="panel-heading">Product Lists</h1>
-		<table class="table table-striped small">
-			<tr>
-				<th class="col-md-1">No.</th>
-				<th class="col-md-2">Code</th>
-				<th class="col-md-2">Category</th>
-				<th class="col-md-2">Model</th>
-				<th class="col-md-2">Article Name</th>
-				<th class="col-md-2">Front Image</th>
-				<th class="col-md-2">Back Image</th>
-				<th class="col-md-2">Closeup Image</th>
-				<th colspan="2" class="center">Action</th>
-			</tr>
-			<?php $i = 0; ?>
+	<div id="fh5co-product">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<span class="text-danger">HighRollers</span>
+					<hr>
+					{{--<h2>Products</h2>--}}
+					{{--<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>--}}
+				</div>
+			</div>
+			<div class="row">
+				{{--<div class="sidebar">--}}
+				<div class="col-md-3 col-md-push-1 animate-box sidebar">
+					<h3 class="pull-left text-info" style="margin-left: -120px">Category</h3><br><br>
+					<div class="fh5co-contact-info aside">
+						<ul>
+							@foreach($categories as $category)
+								<li class="url"><a href="#">{{ $category->category_name }}</a></li>
+							@endforeach
+						</ul>
+					</div>
+				</div>
+				{{--</div>--}}
+
 				@foreach($products as $product)
-					<tr>
-						<td>{{($products->currentpage()-1)*$products->perpage()+1 + $i}}</td>
-                        <td>{{ strtoupper($product->code) }}</td>
-                        <td>{{ strtoupper($product->category()->first()->category_name) }}</td>
-                        <td>{{ strtoupper($product->product_model()->first()->model_name) }}</td>
-                        <td>{{ strtoupper($product->article_name) }}</td>
-						<td><img src="{{ asset('images/products/'.$product->pict_front) }}" height="50" width="50" alt=""></td>
-						<td><img src="{{ asset('images/products/'.$product->pict_back) }}" height="50" width="50" alt=""></td>
-						<td><img src="{{ asset('images/products/'.$product->pict_closeup) }}" height="50" width="50" alt=""></td>
-
-						{{--@if (!Auth::guest())--}}
-						<td class="col-md-1" align="right">
-							<a href="/products/{{$product->id}}/edit" class="btn btn-xs btn-info">Edit</a>
-						</td>
-						<td class="col-md-1 delete" align="left">
-							{!! Form::open(['method'=>'delete', 'route'=>['products.destroy', $product->id]]) !!}
-							{!! Form::submit('Delete', ['class'=>'btn btn-xs btn-danger']) !!}
-							{!!Form::close()!!}
-						</td>
-						{{--@endif--}}
-					</tr>
-				<?php $i += 1 ?>
+				<div class="col-md-3 text-center animate-box">
+					<div class="product">
+						<div class="product-grid content" style="background-image:url({{ asset('images/products/'.$product->pict_front) }});">
+							<div class="inner">
+								<p>
+									{{--<a href="#" class="icon"><i class="icon-shopping-cart"></i></a>--}}
+									<a href="{{ url('products/'.$product->id) }}" class="icon"><i class="icon-eye"></i></a>
+								</p>
+							</div>
+						</div>
+						<div class="desc">
+							<h3><a href="{{ url('products/'.$product->id) }}">{{ strtoupper($product->product_model()->first()->model_name. ' ' .$product->article_name) }}</a></h3>
+							<span class="price">{{ $product->price_normal }}</span>
+						</div>
+					</div>
+				</div>
 				@endforeach
-		</table>
-
-		<br>
-		<div class="center">
-			{{$products->links()}}
+			</div>
 		</div>
 	</div>
-	<br>
-
 @endsection
 

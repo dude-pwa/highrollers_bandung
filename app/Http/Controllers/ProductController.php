@@ -21,9 +21,19 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $categories = Category::orderBy('category_name')->get();
+
         $products = Product::orderBy('article_name');
         $products = $products->paginate();
-        return view('products.index', compact('products'));
+
+        return view('products.index', compact('products', 'categories'));
+    }
+
+    public function indexOld()
+    {
+        $products = Product::orderBy('article_name');
+        $products = $products->paginate();
+        return view('products.index-old', compact('products'));
     }
 
     /**
@@ -105,7 +115,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-
+        $product = Product::findOrFail($id);
+        return view('products.show', compact('product'));
     }
 
     /**
