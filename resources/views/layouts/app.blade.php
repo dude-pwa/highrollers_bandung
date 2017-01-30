@@ -99,6 +99,9 @@
                                 <a href="#">{{ Auth::user()->name }} <span class="caret"></span></a>
                                 <ul class="dropdown">
                                     {{--<li><a href="single.html">Single Shop</a></li>--}}
+                                    @if(Auth::user()->hasRole('Admin'))
+                                        <li><a href="{{ url('admin') }}">Go To Admin Page</a></li>
+                                    @endif
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 </ul>
                             </li>

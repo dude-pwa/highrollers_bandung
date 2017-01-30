@@ -22,6 +22,11 @@ Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
     Route::get('/demo', function ()    {
         return 'only admin can view this page';
     });
+    // ADMIN
+    Route::get('admin', 'AdminController@index');
+    Route::resource('admin/categories', 'AdminCategoryController');
+    Route::resource('admin/product_models', 'AdminProductModelController');
+    Route::resource('admin/products', 'AdminProductController');
 
 //    Add other route Here
 //    Route::get('/', 'DemoController@index');
@@ -35,4 +40,3 @@ Route::resource('categories', 'CategoriesController');
 Route::resource('product_models', 'ProductModelController');
 Route::resource('products', 'ProductController');
 Route::get('/products-old', 'ProductController@indexOld');
-
