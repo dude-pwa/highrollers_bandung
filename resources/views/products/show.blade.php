@@ -4,7 +4,7 @@
     <div id="fh5co-product">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 animate-box">
+                <div class="col-md-5 col-md-offset-0 animate-box">
                     <div class="owl-carousel owl-carousel-fullwidth product-carousel">
                         <div class="item">
                             <div class="active text-center">
@@ -29,9 +29,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+            {{--</div>--}}
+            {{--<div class="row">--}}
+                <div class="col-md-7 col-md-offset-0">
                     <div class="fh5co-tabs animate-box">
                         <!-- Tabs -->
                         <div class="fh5co-tab-content-wrap">
@@ -39,29 +39,86 @@
                                 <div class="col-md-10 col-md-offset-1">
                                     <h2>{{ strtoupper($product->product_model()->first()->model_name. ' ' .$product->article_name) }}</h2>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-10">
                                             <h2 class="uppercase">Available Size</h2>
-                                                <span class="price">
-                                                    S: {{ $product->size_s }}
-                                                </span>
-                                                <span class="price">
-                                                    M: {{ $product->size_m }}
-                                                </span>
-                                                <span class="price">
-                                                    L: {{ $product->size_l }}
-                                                </span>
-                                                <span class="price">
-                                                    LL: {{ $product->size_ll }}
-                                                </span>
-                                                <span class="price">
-                                                    XL: {{ $product->size_xl }}
-                                                </span>
-                                                <span class="price">
-                                                    XXL: {{ $product->size_xxl }}
-                                                </span>
-                                                <span class="price">
-                                                    XXXL: {{ $product->size_xxxl }}
-                                                </span>
+                                                {{--<span class="price">--}}
+                                                    <table class="table table-responsive" width="100%">
+                                                        <tr>
+                                                            <th>Size</th>
+                                                            <th class="center">Stock</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>S</td>
+                                                            <td class="center">
+                                                                @if($product->size_s == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_s }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>M</td>
+                                                            <td class="center">
+                                                                @if($product->size_m == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_m }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>L</td>
+                                                            <td class="center">
+                                                                @if($product->size_l == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_l }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>LL</td>
+                                                            <td class="center">
+                                                                @if($product->size_ll == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_ll }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>XL</td>
+                                                            <td class="center">
+                                                                @if($product->size_xl == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_xl }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>XXL</td>
+                                                            <td class="center">
+                                                                @if($product->size_xxl == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_xxl }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>XXXL</td>
+                                                            <td class="center">
+                                                                @if($product->size_xxxl == 0)
+                                                                <strike>Out Of Stock</strike>
+                                                                @else
+                                                                {{ $product->size_xxxl }}
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                {{--</span>--}}
 
                                                 {{--<span class="price">--}}
                                                     {{--@if($product->size_s == 0)--}}
@@ -113,7 +170,9 @@
                                                     {{--@endif--}}
                                                 {{--</span>--}}
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10">
                                             <h2 class="uppercase">Price</h2>
                                             <span class="price"><b>S - XL: Rp. {{ $product->price_normal. ',-' }}</b></span>
                                             <br>

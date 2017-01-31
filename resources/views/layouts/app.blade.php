@@ -57,7 +57,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="/">HighRollers</a></div>
+                    <div id="fh5co-logo">
+                        <a href="/"><img src="{{ asset('src/images/logo.jpg') }}" alt="HighRollers" width="30%" height="30%"></a>
+                    </div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>

@@ -766,7 +766,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 /*pras*/
 #fh5co-product{
-  /*background-color: #000000;*/
+  background-color: #e3e3e3;
 }
 /*end pras*/
 
@@ -1719,3 +1719,8 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.center{
+  text-align: center;
+}

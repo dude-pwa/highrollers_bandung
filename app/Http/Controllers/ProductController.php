@@ -19,11 +19,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = null)
     {
         $categories = Category::orderBy('category_name')->get();
 
-        $products = Product::orderBy('article_name');
+        if($id != null){
+            $products = Product::orderBy('created_at')->where('category_id', $id);
+        }else {
+            $products = Product::orderBy('created_at');
+        }
         $products = $products->paginate();
 
         return view('products.index', compact('products', 'categories'));

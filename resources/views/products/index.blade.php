@@ -18,7 +18,7 @@
 					<div class="fh5co-contact-info aside">
 						<ul>
 							@foreach($categories as $category)
-								<li class="url"><a href="#">{{ $category->category_name }}</a></li>
+								<li class="url"><a href="{{ url('products/category/'.$category->id) }}">{{ $category->category_name }}</a></li>
 							@endforeach
 						</ul>
 					</div>
