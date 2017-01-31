@@ -28,7 +28,11 @@
 				@foreach($products as $product)
 				<div class="col-md-3 text-center animate-box">
 					<div class="product">
+						@if(empty($product->pict_front))
+						<div class="product-grid content" style="background-image:url({{ asset('src/images/logo.jpg') }});">
+						@else
 						<div class="product-grid content" style="background-image:url({{ asset('images/products/'.$product->pict_front) }});">
+						@endif
 							<div class="inner">
 								<p>
 									{{--<a href="#" class="icon"><i class="icon-shopping-cart"></i></a>--}}
