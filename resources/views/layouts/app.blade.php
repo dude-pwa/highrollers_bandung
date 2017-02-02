@@ -58,7 +58,7 @@
             <div class="row">
                 <div class="col-md-3 col-xs-2">
                     <div id="fh5co-logo">
-                        <a href="/"><img src="{{ asset('src/images/logo.jpg') }}" alt="HighRollers" width="30%" height="30%"></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('src/images/logo.jpg') }}" alt="HighRollers" width="30%" height="30%"></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
@@ -85,12 +85,17 @@
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
                     <ul>
                         <li class="search">
+                            {!! Form::open(array('route' => 'products.search', 'method' => 'GET')) !!}
+                                {!! Form::token() !!}
                             <div class="input-group">
-                                <input type="text" placeholder="Search..">
+                                {!! Form::text('search', null, array('required', 'placeholder'=>'Search ...')) !!}
+                                {{--<input type="text" placeholder="Search..">--}}
 						      <span class="input-group-btn">
-						        <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+                                  {!! Form::button('<i class="icon-search"></i>', array('class'=>'btn btn-primary')) !!}
+						        {{--<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>--}}
 						      </span>
                             </div>
+                            {!! Form::close() !!}
                         </li>
                         {{--<li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>--}}
                         @if (Auth::guest())

@@ -43,6 +43,7 @@
         @include('../shared.admin_nav')
 
         <!-- Sidebar -->
+        <br>
         @include('../shared.admin_sidebar')
     </nav>
 

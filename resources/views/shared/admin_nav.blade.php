@@ -1,5 +1,5 @@
 <div class="navbar-header">
-    <a class="navbar-brand" href="/">HighRollers</a>
+    <a class="navbar-brand" href="{{ url('/') }}">HighRollers</a>
 </div>
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -11,7 +11,7 @@
 
 <!-- Top Navigation: Left Menu -->
 <ul class="nav navbar-nav navbar-left navbar-top-links">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i> Website</a></li>
+    <li><a href="{{ url('/') }}"><i class="fa fa-home fa-fw"></i> Website</a></li>
 </ul>
 
 <!-- Top Navigation: Right Menu -->

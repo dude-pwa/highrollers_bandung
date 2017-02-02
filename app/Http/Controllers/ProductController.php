@@ -8,6 +8,8 @@ use App\ProductModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Input;
+
 use Session;
 
 use App\Http\Requests;
@@ -27,6 +29,21 @@ class ProductController extends Controller
             $products = Product::orderBy('created_at')->where('category_id', $id);
         }else {
             $products = Product::orderBy('created_at');
+        }
+        $products = $products->paginate();
+
+        return view('products.index', compact('products', 'categories'));
+    }
+
+    public function search(Request $request){
+        $query = $request->input('search');
+        $categories = Category::orderBy('category_name')->get();
+
+        if($query){
+            $products = Product::orderBy('article_name')->where('article_name', 'like', '%'.$query.'%');
+//            dd($products);
+        }else {
+            $products = Product::orderBy('article_name');
         }
         $products = $products->paginate();
 

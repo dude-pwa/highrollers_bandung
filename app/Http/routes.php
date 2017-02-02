@@ -37,7 +37,14 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('categories', 'CategoriesController');
-Route::resource('product_models', 'ProductModelController');
-Route::resource('products', 'ProductController');
+
+// PRODUCT
+Route::get('products/result', [
+    'as' => 'products.search', 'uses' => 'ProductController@search'
+]);
 Route::get('products/category/{id}', 'ProductController@index');
+Route::resource('product_models', 'ProductModelController');
+Route::resource('products', 'ProductController'/*, ['except'=>'show']*/);
+// END PRODUCT
+
 Route::get('/products-old', 'ProductController@indexOld');
