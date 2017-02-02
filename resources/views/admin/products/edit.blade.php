@@ -12,8 +12,9 @@
 					{!! Form::label('code', 'Product Code: ', ['class'=>'input-group-addon bold']) !!}
 					{!! Form::text('code', null, ['class' => 'form-control', 'readonly']) !!}
 				</div> <br>
-				@include('products.form', ['submitButton'=>'Simpan Perubahan'])
+				@include('admin.products.form', ['submitButton'=>'Simpan Perubahan'])
 			{!! Form::close() !!}
 		</div>
 	</div>
+	<br><br>
 @stop
