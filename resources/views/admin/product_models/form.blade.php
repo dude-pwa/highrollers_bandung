@@ -1,4 +1,4 @@
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 <div class="input-group">
 	{!! Form::label('model_name', 'Model Name: ', ['class'=>'input-group-addon bold']) !!}
 	{!! Form::text('model_name', null, ['class' => 'form-control']) !!}

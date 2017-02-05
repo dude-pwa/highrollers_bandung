@@ -9,13 +9,13 @@
 		<table class="table table-striped small">
 			<tr>
 				<th class="col-md-1">No.</th>
-				<th class="col-md-3">Details</th>
+				<th class="col-md-4">Details</th>
 				{{--<th class="col-md-2">Category</th>--}}
 				{{--<th class="col-md-2">Article Name</th>--}}
 				<th class="col-md-2 center">Qty.</th>
-				<th class="col-md-2">Front Image</th>
-				<th class="col-md-2">Back Image</th>
-				<th class="col-md-2">Closeup Image</th>
+				<th class="col-md-1">Front Image</th>
+				<th class="col-md-1">Back Image</th>
+				<th class="col-md-1">Closeup Image</th>
 				<th colspan="2" class="center">Action</th>
 			</tr>
 			<?php $i = 0; ?>

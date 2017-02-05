@@ -33,6 +33,18 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery -->
+    <script src="{{ asset('src/admin/js/jquery.min.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('src/admin/js/bootstrap.min.js') }}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ asset('src/admin/js/metisMenu.min.js') }}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('src/admin/js/startmin.js') }}"></script>
 </head>
 <body>
 
@@ -45,6 +57,23 @@
         <!-- Sidebar -->
         <br>
         @include('../shared.admin_sidebar')
+
+        @if(Session::has('message'))
+            <div class="alert alert-success">
+                {{Session::get('message')}}
+            </div>
+        @elseif(Session::has('error'))
+            <div class="alert alert-danger">
+                {{Session::get('error')}}
+            </div>
+        @endif
+
+        <script>
+            $('div.alert').delay(25000).slideUp(300);
+            $(".delete").on("submit", function(){
+                return confirm("Are you sure?");
+            });
+        </script>
     </nav>
 
     <!-- Page Content -->
@@ -64,18 +93,5 @@
     </div>
 
 </div>
-
-<!-- jQuery -->
-<script src="{{ asset('src/admin/js/jquery.min.js') }}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('src/admin/js/bootstrap.min.js') }}"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="{{ asset('src/admin/js/metisMenu.min.js') }}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{ asset('src/admin/js/startmin.js') }}"></script>
-
 </body>
 </html>

@@ -16,7 +16,7 @@ class AdminProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('article_name');
+        $products = Product::orderBy('code');
         $products = $products->paginate();
         return view('admin.products.index', compact('products'));
     }
@@ -86,6 +86,8 @@ class AdminProductController extends Controller
         $product->pict_front = $request->pict_front ? $request->pict_front : "";
         $product->pict_back = $request->pict_back ? $request->pict_back : "";
         $product->pict_closeup = $request->pict_closeup ? $request->pict_closeup : "";
+        $product->is_accesories = $request->is_accesories ? $request->is_accesories : 0;
+        $product->date_checked = $request->date_checked;
         $product->save();
 
         Session::flash('message', 'Berhasil menambah data Product!');

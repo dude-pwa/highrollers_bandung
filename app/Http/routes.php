@@ -18,7 +18,7 @@
 Route::get('/', 'DemoController@index');
 
 // Middleware Demo
-Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
+//Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
     Route::get('/demo', function ()    {
         return 'only admin can view this page';
     });
@@ -30,7 +30,7 @@ Route::group(['middleware' => 'roles', 'roles' => ['Admin']], function () {
 
 //    Add other route Here
 //    Route::get('/', 'DemoController@index');
-});
+//});
 
 Route::auth();
 
