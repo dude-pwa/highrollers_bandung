@@ -58,22 +58,6 @@
         <br>
         @include('../shared.admin_sidebar')
 
-        @if(Session::has('message'))
-            <div class="alert alert-success">
-                {{Session::get('message')}}
-            </div>
-        @elseif(Session::has('error'))
-            <div class="alert alert-danger">
-                {{Session::get('error')}}
-            </div>
-        @endif
-
-        <script>
-            $('div.alert').delay(25000).slideUp(300);
-            $(".delete").on("submit", function(){
-                return confirm("Are you sure?");
-            });
-        </script>
     </nav>
 
     <!-- Page Content -->
@@ -83,6 +67,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <br><br>
+                    @if(Session::has('message'))
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <div class="alert alert-success">
+                            {{Session::get('message')}}
+                        </div>
+                    @elseif(Session::has('error'))
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <div class="alert alert-danger">
+                            {{Session::get('error')}}
+                        </div>
+                    @endif
+
+                    <script>
+                        $('div.alert').delay(25000).slideUp(300);
+                        $(".delete").on("submit", function(){
+                            return confirm("Are you sure?");
+                        });
+
+                        $(".close").click(function(){
+                            $('.alert').hide();
+                            $(this).hide();
+                        });
+                    </script>
                     @yield('content')
                 </div>
             </div>

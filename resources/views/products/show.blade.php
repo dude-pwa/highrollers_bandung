@@ -40,8 +40,9 @@
                                     <h2>{{ strtoupper($product->product_model()->first()->model_name. ' ' .$product->article_name) }}</h2>
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <h2 class="uppercase">Available Size</h2>
+                                            <h2 class="uppercase">Available Stock</h2>
                                                 {{--<span class="price">--}}
+                                                @if($product->is_accesories == false)
                                                     <table class="table table-responsive" width="100%">
                                                         <tr>
                                                             <th>Size</th>
@@ -118,6 +119,14 @@
                                                             </td>
                                                         </tr>
                                                     </table>
+                                                @else
+                                                    <table class="table table-responsive" width="20%">
+                                                        <tr>
+                                                            <td width="10%">Qty.</td>
+                                                            <td class="center">{{ $product->qty_topi }}</td>
+                                                        </tr>
+                                                    </table>
+                                                @endif
                                                 {{--</span>--}}
 
                                                 {{--<span class="price">--}}

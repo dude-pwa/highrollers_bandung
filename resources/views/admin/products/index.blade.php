@@ -48,6 +48,7 @@
 						{{--</a>--}}
 					{{--</td>--}}
 					<td>
+						@if($product->is_accesories != true)
 						<ul>
 							<li>Size S: {{ $product->size_s }}</li>
 							<li>Size M: {{ $product->size_m }}</li>
@@ -57,6 +58,11 @@
 							<li>Size XXL: {{ $product->size_xxl }}</li>
 							<li>Size XXXL: {{ $product->size_xxxl }}</li>
 						</ul>
+						@else
+						<ul>
+							<li>Qty = {{ $product->qty_topi }}</li>
+						</ul>
+						@endif
 					</td>
 					<td><img src="{{ asset('images/products/'.$product->pict_front) }}" height="100" width="70" alt=""></td>
 					<td><img src="{{ asset('images/products/'.$product->pict_back) }}" height="100" width="70" alt=""></td>

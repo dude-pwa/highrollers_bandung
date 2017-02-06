@@ -188,6 +188,8 @@ class AdminProductController extends Controller
         $product->price_normal = $request->price_normal;
         $product->price_over_size = $request->price_over_size;
         $product->qty_topi = $request->qty_topi ? $request->qty_topi : 0;
+        $product->is_accesories = $request->is_accesories ? $request->is_accesories : 0;
+        $product->date_checked = $request->date_checked;
         if($request->hasFile('pict_front')) {
             $product->pict_front = $request->pict_front ? $request->pict_front : "";
         }
