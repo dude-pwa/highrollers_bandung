@@ -13,7 +13,7 @@
                 </div>
             </li>
             <li>
-                <a href="{{ url('admin/categories') }}" class="active"><i class="fa fa-folder fa-fw"></i> Categories</a>
+                <a href="{{ url('admin/categories') }}"><i class="fa fa-folder fa-fw"></i> Categories</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Products<span class="fa arrow"></span></a>
@@ -32,6 +32,14 @@
                             {{--</li>--}}
                         {{--</ul>--}}
                     {{--</li>--}}
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Master Data<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ url('admin/master_sizes') }}">Size</a>
+                    </li>
                 </ul>
             </li>
         </ul>

@@ -27,6 +27,7 @@ Route::get('/', 'DemoController@index');
     Route::resource('admin/categories', 'AdminCategoryController');
     Route::resource('admin/product_models', 'AdminProductModelController');
     Route::resource('admin/products', 'AdminProductController');
+    Route::resource('admin/master_sizes', 'AdminMasterSizeController');
 
 //    Add other route Here
 //    Route::get('/', 'DemoController@index');
