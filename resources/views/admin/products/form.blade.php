@@ -37,7 +37,7 @@
 			</div> <br>
 			<div class="input-group" id="input-topi">
 				{!! Form::label('qty_topi', 'Qty: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('qty_topi', null, ['class' => 'form-control']) !!}
+				{!! Form::text('qty_topi', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<br><br><br>
 		</td>
@@ -46,31 +46,31 @@
 			<div id="input-size">
 			<div class="input-group">
 				{!! Form::label('size_s', 'Size S Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_s', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_s', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_m', 'Size M Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_m', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_m', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_l', 'Size L Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_l', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_l', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_ll', 'Size LL Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_ll', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_ll', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_xl', 'Size XL Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_xl', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_xl', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_xxl', 'Size XXL Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_xxl', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_xxl', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			<div class="input-group">
 				{!! Form::label('size_xxxl', 'Size XXXL Qty.: ', ['class'=>'input-group-addon bold']) !!}
-				{!! Form::text('size_xxxl', null, ['class' => 'form-control']) !!}
+				{!! Form::text('size_xxxl', null, ['class' => 'form-control', $readOnlyForm]) !!}
 			</div> <br>
 			</div>
 		</td>

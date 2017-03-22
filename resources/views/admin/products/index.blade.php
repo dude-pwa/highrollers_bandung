@@ -3,6 +3,8 @@
 @section('content')
 	<br>
 	<a href="{{ url('admin/products/create') }}" class="btn btn-primary">Add New Product</a>
+	<a href="{{ url('admin/products/add_stock') }}" class="btn btn-info">Tambah Stok</a>
+	<hr>
 	<br><br>
 	<div class="panel panel-success">
 		<h1 class="panel-heading">Product Lists</h1>

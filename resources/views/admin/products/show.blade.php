@@ -1,133 +1,62 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div id="fh5co-product">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 animate-box">
-                    <div class="owl-carousel owl-carousel-fullwidth product-carousel">
-                        <div class="item">
-                            <div class="active text-center">
-                                <figure>
-                                    <img src="{{ asset('images/products/'.$product->pict_front) }}" alt="user">
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="active text-center">
-                                <figure>
-                                    <img src="{{ asset('images/products/'.$product->pict_back) }}" alt="user">
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="active text-center">
-                                <figure>
-                                    <img src="{{ asset('images/products/'.$product->pict_closeup) }}" alt="user">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="fh5co-tabs animate-box">
-                        <!-- Tabs -->
-                        <div class="fh5co-tab-content-wrap">
-                            <div class="fh5co-tab-content tab-content active" data-tab-content="1">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <h2>{{ strtoupper($product->product_model()->first()->model_name. ' ' .$product->article_name) }}</h2>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h2 class="uppercase">Available Size</h2>
-                                                <span class="price">
-                                                    S: {{ $product->size_s }}
-                                                </span>
-                                                <span class="price">
-                                                    M: {{ $product->size_m }}
-                                                </span>
-                                                <span class="price">
-                                                    L: {{ $product->size_l }}
-                                                </span>
-                                                <span class="price">
-                                                    LL: {{ $product->size_ll }}
-                                                </span>
-                                                <span class="price">
-                                                    XL: {{ $product->size_xl }}
-                                                </span>
-                                                <span class="price">
-                                                    XXL: {{ $product->size_xxl }}
-                                                </span>
-                                                <span class="price">
-                                                    XXXL: {{ $product->size_xxxl }}
-                                                </span>
+    <div class="panel panel-success" style="margin-top: 100px">
+        <h1 class="panel-heading">
+            {{ strtoupper($product->product_model()->first()->model_name. ' ' .$product->article_name. ' (' .$product->code.')') }}
+        </h1>
+        <div class="panel-form panel-content">
+            <table class="table table-bordered">
+                <tr>
+                    <th class="center col-md-2" rowspan="">Images</th>
+                    <th class="center col-md-1" colspan="7">Available Size</th>
+                    <th class="center" colspan="2">Price</th>
 
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_s == 0)--}}
-                                                        {{--S: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--S: {{ $product->size_s }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_m == 0)--}}
-                                                        {{--M: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--M: {{ $product->size_m }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_l == 0)--}}
-                                                        {{--L: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--L: {{ $product->size_l }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_ll == 0)--}}
-                                                        {{--LL: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--LL: {{ $product->size_ll }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_xl == 0)--}}
-                                                        {{--XL: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--XL: {{ $product->size_xl }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_xxl == 0)--}}
-                                                        {{--XXL: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--XXL: {{ $product->size_xxl }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                                {{--<span class="price">--}}
-                                                    {{--@if($product->size_xxxl == 0)--}}
-                                                        {{--XXXL: Out Of Stock--}}
-                                                    {{--@else--}}
-                                                        {{--XXXL: {{ $product->size_xxxl }}--}}
-                                                    {{--@endif--}}
-                                                {{--</span>--}}
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h2 class="uppercase">Price</h2>
-                                            <span class="price"><b>S - XL: Rp. {{ $product->price_normal. ',-' }}</b></span>
-                                            <br>
-                                            <span class="price"><b>XXL - XXXL: Rp. {{ $product->price_over_size. ',-' }}</b></span>
-                                        </div>
-                                    </div>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    @if($product->is_accesories != true)
+                        <th class="center" width="20">S</th>
+                        <th class="center" width="20">M</th>
+                        <th class="center" width="20">L</th>
+                        <th class="center" width="20">LL</th>
+                        <th class="center" width="20">XL</th>
+                        <th class="center" width="20">XXL</th>
+                        <th class="center" width="20">XXXL</th>
+                        <th class="col-md-1 center">Normal</th>
+                        <th class="col-md-1 center">Over Size</th>
+                    @else
+                       <div style="border-right: 0;"></div>
+                        <th class="center" width="140" colspan="7">Quantity</th>
+                        <th class="col-md-1 center" colspan="2">&nbsp;</th>
+                    @endif
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                        <img src="{{ asset('images/products/'.$product->pict_front) }}" alt="user"> &nbsp;
+                        <img src="{{ asset('images/products/'.$product->pict_back) }}" alt="user"> &nbsp;
+                        <img src="{{ asset('images/products/'.$product->pict_closeup) }}" alt="user"> &nbsp;
+                        </center>
+                    </td>
+                    @if($product->is_accesories != true)
+                        <td class="center">{{ $product->size_s }}</td>
+                        <td class="center">{{ $product->size_m }}</td>
+                        <td class="center">{{ $product->size_l }}</td>
+                        <td class="center">{{ $product->size_ll }}</td>
+                        <td class="center">{{ $product->size_xl }}</td>
+                        <td class="center">{{ $product->size_xxl }}</td>
+                        <td class="center">{{ $product->size_xxxl }}</td>
 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                        <td class="right">Rp. {{ $product->price_normal. ', -' }}</td>
+                        <td class="right">Rp. {{ $product->price_over_size. ', -' }}</td>
+                    @else
+                        <th class="center" width="20" colspan="7">{{ $product->qty_topi }}</th>
+                        <th class="center" width="20" colspan="2">Rp. {{ $product->price_normal. ', -' }}</th>
+                    @endif
+                </tr>
+            </table>
         </div>
     </div>
 @endsection

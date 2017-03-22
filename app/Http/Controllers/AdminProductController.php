@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use App\ProductModel;
+use App\ProductInventory;
+use App\ProductMutation;
+use Carbon\Carbon;
+use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Session;
+use DB;
 
 use App\Http\Requests;
 
@@ -90,7 +95,35 @@ class AdminProductController extends Controller
         $product->date_checked = $request->date_checked;
         $product->save();
 
-        Session::flash('message', 'Berhasil menambah data Product!');
+        if($product->save()){
+            $p_inventory = new ProductInventory();
+            $p_mutation = new ProductMutation();
+
+            if($product->is_accesories == 1){
+                $p_inventory->product_id = $product->id;
+                $p_inventory->saldo_qty = ($p_inventory->saldo_qty ? $p_inventory->saldo_qty : 0) + $product->qty_topi;
+                $p_inventory->save();
+
+                $p_mutation->product_id = $product->id;
+                $p_mutation->masuk_qty = $product->qty_topi;
+                $p_mutation->tgl_mutasi = Carbon::now();
+                $p_mutation->save();
+            }else{
+                $p_inventory->product_id = $product->id;
+                $p_inventory->saldo_qty = ($p_inventory->saldo_qty ? $p_inventory->saldo_qty : 0) +
+                    $product->size_s + $product->size_m + $product->size_l +
+                    $product->size_ll + $product->size_xl + $product->size_xxl + $product->size_xxxl;
+                $p_inventory->save();
+
+                $p_mutation->product_id = $product->id;
+                $p_mutation->tgl_mutasi = Carbon::now();
+                $p_mutation->masuk_qty = $product->size_s + $product->size_m + $product->size_l +
+                    $product->size_ll + $product->size_xl + $product->size_xxl + $product->size_xxxl;
+                $p_mutation->save();
+            }
+        }
+
+        Session::flash('message', 'Berhasil!');
         return redirect('admin/products');
     }
 
@@ -218,5 +251,18 @@ class AdminProductController extends Controller
 
         Session::flash('message', 'Data Negara berhasil di hapus!');
         return redirect('admin/products');
+    }
+
+    public function AddStock($product = null){
+        $products = Product::lists('code', 'id');
+        $tipe = '';
+        $getProduct = null;
+        if($product != null){
+            $getProduct = Product::where('code', $product)->first();
+            $tipe = $getProduct->is_accesories;
+        }
+        
+
+        return view('admin.products.add_stock', compact('products', 'tipe', 'product', 'getProduct'));
     }
 }

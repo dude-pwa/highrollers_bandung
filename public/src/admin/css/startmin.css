@@ -668,3 +668,7 @@ table.dataTable thead .sorting:after {
 .left{
     text-align: left;
 }
+
+.right{
+    text-align: right;
+}

@@ -26,6 +26,25 @@ Route::get('/', 'DemoController@index');
     Route::get('admin', 'AdminController@index');
     Route::resource('admin/categories', 'AdminCategoryController');
     Route::resource('admin/product_models', 'AdminProductModelController');
+    Route::get('admin/products/add_stock/{product?}', [
+        'as' => 'admin.products.add_stock',
+        'uses' => 'AdminProductController@AddStock'
+    ]);
+
+//    Mutasi Route
+    Route::get('admin/product_mutation/{productCode?}', [
+        'as' => 'admin.product_mutation.show',
+        'uses' => 'ProductMutationController@show'
+    ]);
+    Route::post('admin/product_mutation', [
+        'as' => 'admin.product_mutation.store',
+        'uses' => 'ProductMutationController@store'
+    ]);
+
+//    Route::post('admin/products', [
+//        'as' => 'admin.products.store',
+//        'uses' => 'AdminProductController@store'
+//    ]);
     Route::resource('admin/products', 'AdminProductController');
     Route::resource('admin/master_sizes', 'AdminMasterSizeController');
 
